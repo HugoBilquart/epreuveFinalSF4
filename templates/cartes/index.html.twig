@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des cartes{% endblock %}
+
+{% block body %}
+    <h1>Liste des cartes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom de la carte</th>
+                <th>Joueur</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carte in cartes %}
+            <tr>
+                <td>{{ cartes.id }}</td>
+                <td>{{ cartes.nom }}</td>
+                <td>{{ cartes.id_joueurs}}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('joueurs_new') }}">Create new</a>
+{% endblock %}

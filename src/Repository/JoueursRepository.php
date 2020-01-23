@@ -47,4 +47,14 @@ class JoueursRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllOrderByScoreDesc()
+    {
+        return $this->createQueryBuilder('j')
+            ->select('j.id, j.nom,j.email,j.score')
+            ->orderBy('j.score', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
